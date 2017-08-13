@@ -1,0 +1,136 @@
+<!-- <div class="progress">
+      <div class="indeterminate">
+  </div></div> -->
+  <div class="row">
+<main>
+	<aside>
+		
+	</aside>
+
+	<section>
+	
+	<div class="create_question">
+
+		<%= form_for @question, remote: true do |f| %>
+		
+		<%= f.text_area :content %> <br><br>
+
+		<div class = "actions">
+
+		<% if user_signed_in? %>
+		<%= f.submit id: 'create_question_submit' %>
+		<% end %>
+
+		<span id="characters">0</span>			
+		</div> 	
+			
+		<%end%>
+
+
+		</div>
+		
+	<% Question.all.each do |ques|%>
+	<ul style="background-color: white"><li>
+		<div class="card white darken-2">
+		<div class="card-content black-text">
+		
+		<% link_to "delete" %>
+		<span class="card-title"><%= ques.content%></span>
+		<b style="color: lightgrey"><% user= User.find_by_id(ques.user_id) %>
+		<i><%= user.try(:email) %></i></b><% if user_signed_in? %>
+	<div class="didit">
+	<%= link_to 'Edit', edit_question_path(ques) %>
+    <%= link_to 'Destroy', ques, method: :delete, data: { confirm: 'Are you sure?'}%>
+    	</div>
+    	<% end %>
+		
+		
+
+
+
+		<% @answers.where(question_id: ques.id).each do |ans|%>
+		<br>
+		
+		 
+		<br> -> <%= ans.content %><br>
+		<b style="color: lightgrey"><% user= User.find_by_id(ans.user_id) %><i><%=user.email %></i></b>
+
+		<%end%>
+
+
+	<div class="create_ques">
+
+	
+	<% if user_signed_in? %>
+	<%= render 'question', ques: ques %>
+	<%end%>
+
+	</div>
+
+	
+
+	<% if @question.errors.any? %>
+      
+      <% @question.errors.full_messages.each do |message| %>
+      
+
+      <script type="text/javascript">
+	noty({text: '<%= message %>', type: 'error'});
+	  </script>
+
+      <% end %>
+     
+  <% end %>
+		
+
+		<div class="create_answer">
+
+		<%= form_for @question.answers.new, remote: true do |f| %>
+		<%= hidden_field_tag 'answer[question_id]', ques.id %>
+		 <br>
+		<%= f.text_area :content %> <br>
+
+		<div class = "actions" style="color: black">
+		<% if user_signed_in? %>
+		<%= f.submit id: 'Answer'%>
+		<%end%>
+
+					
+		</div> 	
+			</div>
+		<%end%>
+
+		</li>
+</ul>
+
+		<%end%>	
+
+
+</div>
+</div>
+	</section>
+
+</main>
+</div>
+
+
+
+<script type="text/javascript">
+	$.ajax({url: '/ajax',
+		data: {
+			text: "text"
+		}
+, success: function(data){
+	console.log(data);
+	console.log("request completed");
+},
+error: function(){
+		console.log(arguments);
+
+	console.log("some error");
+}
+
+});
+</script>
+
+

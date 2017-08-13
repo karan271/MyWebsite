@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+    	
+    
+
+
+div.create_question textarea{
+        width: 90%;
+        height: 80%;
+           
+        margin-top: 10px;
+        overflow-y: hidden;
+     /* prevents scroll bar flash */
+        /*padding: .8rem 0 1.6rem 0;*/
+     /* prevents text jump on Enter keypress */
+        resize: none;
+        min-height: 3rem;
+        border-bottom-color: rgb(0,50,0);
+        border-bottom-width: 2px;
+        border-left-color: white;
+        border-right-color: white;
+        border-top-color: white;
+        /*border:none;*/
+
+            }
+
+
+div.create_answer textarea{
+        
+        overflow-y: hidden;
+     /* prevents scroll bar flash */
+        
+     /* prevents text jump on Enter keypress */
+        resize: none;
+        
+        border-bottom-style: black;
+        border-left-color: white;
+        border-right-color: white;
+        border-top-color: white;
+        /*border:none;*/
+
+            }
+
+
+
+div.didit{
+    margin-left: 700px;
+}
+
+/*section div.ques_content {
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-color: black;
+   /* border-top-color: black;
+    
+
+}*/
+
+section{
+    padding-left: 250px;
+    padding-right: 250px;
+}
