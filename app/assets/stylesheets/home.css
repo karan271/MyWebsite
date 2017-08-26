@@ -1,19 +1,26 @@
 *{
     margin: 0;
     padding: 0;
+
 }
+/*
+section{
+    background-color: #666;
+}*/
 
-
-
-    	
+/*nav{
+    position: fixed;
+}*/
     
-
+.agla{
+    margin-left: 270px;
+}
 
 div.create_question textarea{
         width: 90%;
         height: 80%;
            
-        margin-top: 10px;
+        margin-top: 30px;
         overflow-y: hidden;
      /* prevents scroll bar flash */
         /*padding: .8rem 0 1.6rem 0;*/
@@ -28,6 +35,23 @@ div.create_question textarea{
         /*border:none;*/
 
             }
+
+div.left{
+            width: 50px;
+        }
+
+            div.userImage{
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: transparent;
+}
+                        img{
+                        
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 20px;
+                        }
 
 
 div.create_answer textarea{
@@ -60,6 +84,7 @@ div.didit{
     
 
 }*/
+
 
 section{
     padding-left: 250px;

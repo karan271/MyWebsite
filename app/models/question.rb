@@ -5,8 +5,8 @@ class Question < ActiveRecord::Base
   validates :content, presence: true, length: {maximum: 150}
   
 
-  WillPaginate.per_page = 7
-
+  paginates_per 3
+  
   def upvoted_by user_id
   	Upvote.where(question_id: id, user_id: user_id).length > 0
   end

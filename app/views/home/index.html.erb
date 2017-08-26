@@ -1,6 +1,7 @@
 <!-- <div class="progress">
       <div class="indeterminate">
   </div></div> -->
+  
   <div class="row">
 <main>
 	<aside>
@@ -20,7 +21,7 @@
 		<% if user_signed_in? %>
 		<%= f.submit id: 'create_question_submit' %>
 		<% end %>
-
+		
 		<span id="characters">0</span>			
 		</div> 	
 			
@@ -28,7 +29,12 @@
 
 
 		</div>
-		
+
+
+ <div class="agla"><%= paginate @questions %></div>
+
+
+
 	<% Question.all.each do |ques|%>
 	<ul style="background-color: white"><li>
 		<div class="card white darken-2">
@@ -36,25 +42,33 @@
 		
 		<% link_to "delete" %>
 		<span class="card-title"><%= ques.content%></span>
-		<b style="color: lightgrey"><% user= User.find_by_id(ques.user_id) %>
-		<i><%= user.try(:email) %></i></b><% if user_signed_in? %>
+
+		<% if user_signed_in? %>
+		Post by:-<b style="color: lightgrey"><% user= User.find_by_id(ques.user_id) %>
+		
+		<i><%= user.try(:email) %></i></b>
+
 	<div class="didit">
+
 	<%= link_to 'Edit', edit_question_path(ques) %>
     <%= link_to 'Destroy', ques, method: :delete, data: { confirm: 'Are you sure?'}%>
-    	</div>
+        	</div>
     	<% end %>
-		
-		
 
 
+		
+	
 
 		<% @answers.where(question_id: ques.id).each do |ans|%>
 		<br>
 		
 		 
 		<br> -> <%= ans.content %><br>
-		<b style="color: lightgrey"><% user= User.find_by_id(ans.user_id) %><i><%=user.email %></i></b>
-
+		<% if user_signed_in? %>
+		<b style="color: lightgrey"><% user= User.find_by_id(ans.user_id) %>
+			
+		<i><%=user.email %></i></b>
+			<%end%>
 		<%end%>
 
 

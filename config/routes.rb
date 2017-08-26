@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get '/users' => 'home#users'
   get '/ajax' => 'home#ajax'
   post 'upvotes/toggle_upvote'
-   
+  get '/profile' => 'home#profile'
   post '/follow' => 'home#follow'
   post '/un_follow' => 'home#un_follow'
-
+  post '/upload_image' => 'home#upload_image'
 
 
   devise_for :users

@@ -4,7 +4,8 @@ class HomeController < ApplicationController
   def index
   	 @question = Question.new
   	@answers = Answer.all
-    
+    # @questions = Question.paginate(:page => params[:page], :per_page => 1).order('created_at DESC')
+    @questions = Question.order(:questions).page(params[:page]).order('created_at DESC')
   end
 
   def users
@@ -29,6 +30,24 @@ class HomeController < ApplicationController
   	return redirect_to '/users'
   end
 
+
+def profile
+  end
+
+  def upload_image
+    uploaded_file = params[:image]
+    filename = SecureRandom.hex + "." + uploaded_file.original_filename.split('.')[1]
+    filepath = Dir.pwd + "/newimage/" + filename
+  File.open(filepath,'wb') do |file|
+    file.write(uploaded_file.read())
+  end
+
+  current_user.profile_picture = filename
+  current_user.save!
+    return redirect_to '/profile'
+  end
+
+  
 
 def ajax
   	render :json => {text: "text"}
