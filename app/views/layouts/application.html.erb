@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Kora </title>
+  <title>  Catechize </title>
+  <!-- <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-96x96.png"> -->
   <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
+  <link rel="icon" type="image/png" href="/assets/catechize1.png">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <link rel="stylesheet" type="text/css" href="materialize.css">
+ 
 </head>
 
 <body>
@@ -27,7 +30,8 @@
 <% end %>
  
 <nav>
-<div class="nav-wrapper"> <a href="#!" class="brand-logo">Kora</a>
+<div class="nav-wrapper">  <div class="brand-logo"> 
+		<%= link_to "Catechize", home_index_path, method: :get %> </div>
 	
 		<ul class="right hide-on-med-and-down">
 			<% if user_signed_in? %>
@@ -51,8 +55,8 @@
 	</nav>
 
 
- 	   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+ 	   <!-- <p class="notice"><%= notice %></p> -->
+       <!-- <p class="alert"><%= alert %></p> -->
 
 
 <%= yield %>

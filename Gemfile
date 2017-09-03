@@ -29,10 +29,10 @@ gem 'devise'
 gem 'kaminari'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'cancancan', '~> 2.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem "font-awesome-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

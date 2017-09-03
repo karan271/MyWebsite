@@ -1,7 +1,7 @@
 <!-- <div class="progress">
       <div class="indeterminate">
   </div></div> -->
-  
+
   <div class="row">
 <main>
 	<aside>
@@ -31,55 +31,75 @@
 		</div>
 
 
- <div class="agla"><%= paginate @questions %></div>
-
 
 
 	<% Question.all.each do |ques|%>
 	<ul style="background-color: white"><li>
+	
 		<div class="card white darken-2">
 		<div class="card-content black-text">
 		
 		<% link_to "delete" %>
-		<span class="card-title"><%= ques.content%></span>
+		<span class="card-title">
+
+	<div class="create_ques" id="bakwass">	
+	<div class="left">
+	<div class="userImage">
+
+	<% if ques.user.profile_picture %>
+	<img src="/assets/user.png">
+	<% end %>
+
+	</div>
+	</div>	
+ 
+	</div><%= ques.content%>
+	</span>
+
+	
 
 		<% if user_signed_in? %>
-		Post by:-<b style="color: lightgrey"><% user= User.find_by_id(ques.user_id) %>
+		   <b style="color: lightgrey"><% user= User.find_by_id(ques.user_id) %>
 		
-		<i><%= user.try(:email) %></i></b>
+		<i id="something"><%= user.try(:email) %></i></b><div class="circlee">
+		<!-- <i class="fa fa-circle-o-notch" aria-hidden="true"></i> -->
 
+		
+		</div>
+		
 	<div class="didit">
-
-	<%= link_to 'Edit', edit_question_path(ques) %>
-    <%= link_to 'Destroy', ques, method: :delete, data: { confirm: 'Are you sure?'}%>
+			<%= link_to image_tag("pencill.png", class: 'circlee'), edit_question_path(ques) %>
+	   		<%= link_to image_tag("destroy.png", class: 'circlee'), ques, method: :delete, data: { confirm: 'Are you sure?'}%>
         	</div>
     	<% end %>
-
-
+    	
 		
 	
 
 		<% @answers.where(question_id: ques.id).each do |ans|%>
-		<br>
+		
 		
 		 
-		<br> -> <%= ans.content %><br>
+		<br><% if ans.user.profile_picture %>
+	<img src="/assets/user.png">
+	<% end %><h7><%= ans.content %></h7><br>
+
+
 		<% if user_signed_in? %>
 		<b style="color: lightgrey"><% user= User.find_by_id(ans.user_id) %>
 			
-		<i><%=user.email %></i></b>
+		<i id="something"><%=user.email %></i></b>
 			<%end%>
 		<%end%>
 
 
-	<div class="create_ques">
 
-	
+		<div class="create_ques">	
 	<% if user_signed_in? %>
 	<%= render 'question', ques: ques %>
 	<%end%>
-
 	</div>
+	
 
 	
 
@@ -124,9 +144,10 @@
 </div>
 	</section>
 
+<div id="toTopButton"><img src="/assets/7645.png"></div>
+
 </main>
 </div>
-
 
 
 <script type="text/javascript">

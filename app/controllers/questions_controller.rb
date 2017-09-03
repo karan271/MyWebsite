@@ -6,6 +6,14 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     # @questions = Question.paginate(:page => params[:page], per_page: 1).order('created_at DESC')
+    # @questions = Question.order(:questions).page(params[:page]).order('created_at DESC')
+    #  @search = params[:search]
+    #  if @search && @search.length > 0
+    #    @questions = Question.where("title like '%#{@search}%' or content like '%#{@search}%'").paginate(:page => params[:page]).order('created_at DESC')
+    #  else
+    #    @questions = Question.order(:questions).page(params[:page]).order('created_at DESC')
+    # end
+    @questions = Question.all
   end
 
   # GET /questions/1

@@ -11,9 +11,39 @@ section{
 /*nav{
     position: fixed;
 }*/
+
+div#bakwass{
+    border-bottom: 20px;
+    border-bottom-color: black;
+}
+
+div.circlee{
+    margin-left: 700px;
+    margin-top: -45px;
+}
+
+
+
+
+#toTopButton{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+
+
+
+.act{
+    margin-left: 580px;
+}
     
 .agla{
     margin-left: 270px;
+}
+
+.pichla{
+    margin-left: 540px;
+    margin-bottom: 50px;
 }
 
 div.create_question textarea{
@@ -40,7 +70,8 @@ div.left{
             width: 50px;
         }
 
-            div.userImage{
+            div.userImage
+            {
             width: 40px;
             height: 40px;
             border-radius: 20px;
@@ -53,7 +84,9 @@ div.left{
                         border-radius: 20px;
                         }
 
-
+i#something{
+    margin-left: 50px;
+}
 div.create_answer textarea{
         
         overflow-y: hidden;
@@ -73,7 +106,7 @@ div.create_answer textarea{
 
 
 div.didit{
-    margin-left: 700px;
+    margin-left: 650px;
 }
 
 /*section div.ques_content {

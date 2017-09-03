@@ -31,4 +31,35 @@ console.log(textarea);
     });
 
 
+
+
+
+
+
+var moveToTopLibrary = function(){
+        var interval;
+        function goToTop(event){
+            var y = window.scrollY;
+            if(interval != null){
+                clearInterval(interval);
+            }
+            interval = setInterval(function(){
+                        if(y > 0) y -= 10;
+                        else clearInterval(interval);
+                        window.scrollTo(0,y);
+                    },10);
+        }
+
+        function scrollEve(event) {
+            if(interval != null && event.deltaY > 0){
+                clearInterval(interval);
+            }
+        }
+        var topButton = document.getElementById('toTopButton');
+        window.addEventListener('wheel',scrollEve);
+        topButton.addEventListener('click',goToTop);
+    }
+
+    moveToTopLibrary();
+
 })

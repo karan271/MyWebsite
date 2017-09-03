@@ -3,9 +3,9 @@ class HomeController < ApplicationController
 
   def index
   	 @question = Question.new
-  	@answers = Answer.all
+    @answers = Answer.all
     # @questions = Question.paginate(:page => params[:page], :per_page => 1).order('created_at DESC')
-    @questions = Question.order(:questions).page(params[:page]).order('created_at DESC')
+    # @questions = Question.order(:questions).page(params[:page]).order('created_at DESC')
   end
 
   def users
@@ -37,7 +37,7 @@ def profile
   def upload_image
     uploaded_file = params[:image]
     filename = SecureRandom.hex + "." + uploaded_file.original_filename.split('.')[1]
-    filepath = Dir.pwd + "/newimage/" + filename
+    filepath = Dir.pwd + "/public/uploads" + filename
   File.open(filepath,'wb') do |file|
     file.write(uploaded_file.read())
   end

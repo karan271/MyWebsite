@@ -1,15 +1,6 @@
-<div class="left">
-<div class="userImage">
-
-	<% if ques.user.profile_picture %>
-	<img src="/music/<%= ques.user.profile_picture %>">
-<% end %>
-
-</div>
-</div>	
- 
-<div class="actions">
+<div class="act">
 	<% id = "count_upvote_#{ques.id}" %>
-	<%= link_to ques.upvote_string(current_user.id), url_for(controller: 'upvotes', action: 'toggle_upvote', question_id: ques.id), method: :post, id: "upvote_#{ques.id}", remote: true %> , <div id=<%= id %>> <%= ques.upvotes.count %></div>
+	<%= link_to ques.upvote_string(current_user.id), url_for(controller: 'upvotes', action: 'toggle_upvote', question_id: ques.id), method: :post, id: "upvote_#{ques.id}", remote: true, class: 'waves-effect waves-light btn-flat' %><%= ques.upvotes.count %>
 </div>
+
 

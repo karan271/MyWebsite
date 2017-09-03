@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     #
     # end
     # devise_parameter_sanitizer.permit(:sign_in, keys: [:display_name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:display_name])
+    devise_parameter_sanitizer.sanitize(:sign_up, keys: [:display_name])
   end
 
 end
